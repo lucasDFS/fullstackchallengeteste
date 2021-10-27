@@ -1,0 +1,20 @@
+-- Table: public.tb_veiculos
+
+-- DROP TABLE IF EXISTS public.tb_veiculos;
+
+CREATE TABLE IF NOT EXISTS public.tb_veiculos
+(
+    veiculos_id integer NOT NULL DEFAULT nextval('tb_veiculos_veiculos_id_seq'::regclass),
+    nome text COLLATE pg_catalog."default",
+    placa character varying(200) COLLATE pg_catalog."default",
+    marca character varying(200) COLLATE pg_catalog."default",
+    modelo character varying(200) COLLATE pg_catalog."default",
+    ano character varying(10) COLLATE pg_catalog."default",
+    versao character varying(200) COLLATE pg_catalog."default",
+    CONSTRAINT tb_veiculos_pkey PRIMARY KEY (veiculos_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tb_veiculos
+    OWNER to postgres;

@@ -1,0 +1,43 @@
+{{page-title "Vehicles"}} 
+<style>  
+.tabela tbody tr:nth-child(even) {
+    background-color: #CCC;
+}  .tabela tbody tr:nth-child(odd) {
+    background-color: rgba(231, 223, 224, 0.747)
+}  
+h1,td{
+    font-family: Arial, Helvetica, sans-serif;
+}
+</style> 
+<h1>Lista De Veiculos</h1>
+{{model.nome}} 
+<table class="tabela">
+  <tr>
+    <td>Placa</td>
+    <td>Marca</td>
+    <td>Modelo</td>
+    <td>Versão</td>
+    <td>Ano</td> 
+    <td>Ações</td> 
+  </tr> 
+  <tbody>
+   {{#each model as |item|}}
+    <tr id="linha{{item.id}}">
+       <td>{{item.placa}}</td>
+       <td>{{item.marca}}</td>
+        <td>{{item.modelo}}</td>
+        <td>{{item.versao}}</td>
+        <td>{{item.ano}}</td>  
+        <td onclick="remover('{{item.id}}')"> 
+            {{#link-to "post" item.id}} Excluir {{/link-to}} 
+        </td> 
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+ 
+ <script>
+    function remover(id){
+       alert(id);  
+    }
+ </script>
